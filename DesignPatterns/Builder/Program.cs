@@ -1,15 +1,22 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Builder.Builder;
+using Builder.Sender;
 
 namespace Builder
 {
     class Program
     {
-        static void Main(string[] args)
+        static void Main()
         {
+            const string body = "Привет! Высылаю следующее домашнее задание (Смажилюк Игорь).";
+
+            IEmailBuilder emailBuilder = new SimpleEmailBuilder("Design@Patterns.ru", body)
+                                            .AddReceiver("Copy@Patterns.ru")
+                                            .SetSubject("Домашнее задание №3 (Builder)");
+
+            IEmail email = emailBuilder.CreateEmail();
+
+            IEmailSender emailSender = new ConsoleEmailSender();
+            emailSender.Send(email);
         }
     }
 }
