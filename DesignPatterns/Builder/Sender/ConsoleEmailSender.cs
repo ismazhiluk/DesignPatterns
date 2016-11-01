@@ -11,16 +11,14 @@ namespace Builder.Sender
             PrintLine(nameof(email.Subject), email.Subject, ConsoleColor.Red);
             PrintLine(nameof(email.Receivers), string.Join(", ", email.Receivers), ConsoleColor.Green);
             PrintLine(nameof(email.Body), email.Body, ConsoleColor.Yellow);
-
-            Console.ResetColor();
         }
-
 
         private static void PrintLine(string label, string data, ConsoleColor color)
         {
             PrintLabel(label);
             Console.ForegroundColor = color;
             Console.WriteLine(data);
+            Console.ResetColor();
         }
 
         private static void PrintLabel(string label)
