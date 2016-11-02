@@ -43,6 +43,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Example\FirstOrmUserAdapter.cs" />
+    <Compile Include="Example\IUserAdapter.cs" />
+    <Compile Include="Example\SecondOrmUserAdapter.cs" />
+    <Compile Include="Example\UserInfoDto.cs" />
     <Compile Include="FirstOrmLibrary\IFirstOrm.cs" />
     <Compile Include="Models\DbUserEntity.cs" />
     <Compile Include="Models\DbUserInfoEntity.cs" />
