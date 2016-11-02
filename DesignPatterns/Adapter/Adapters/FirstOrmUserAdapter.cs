@@ -2,7 +2,7 @@
 using Adapter.FirstOrmLibrary;
 using Adapter.Models;
 
-namespace Adapter.Example
+namespace Adapter.Adapters
 {
     public class FirstOrmUserAdapter : IUserAdapter
     {

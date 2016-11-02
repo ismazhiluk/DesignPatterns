@@ -1,6 +1,6 @@
-﻿using System;
+using System;
 
-namespace Adapter.Example
+namespace Adapter
 {
     public class UserInfoDto
     {

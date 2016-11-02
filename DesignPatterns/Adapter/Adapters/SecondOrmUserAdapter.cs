@@ -3,7 +3,7 @@ using System.Linq;
 using Adapter.Models;
 using Adapter.SecondOrmLibrary;
 
-namespace Adapter.Example
+namespace Adapter.Adapters
 {
     public class SecondOrmUserAdapter : IUserAdapter
     {

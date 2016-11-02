@@ -43,10 +43,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Example\FirstOrmUserAdapter.cs" />
-    <Compile Include="Example\IUserAdapter.cs" />
-    <Compile Include="Example\SecondOrmUserAdapter.cs" />
-    <Compile Include="Example\UserInfoDto.cs" />
+    <Compile Include="Adapters\FirstOrmUserAdapter.cs" />
+    <Compile Include="Adapters\IUserAdapter.cs" />
+    <Compile Include="Adapters\SecondOrmUserAdapter.cs" />
     <Compile Include="FirstOrmLibrary\IFirstOrm.cs" />
     <Compile Include="Models\DbUserEntity.cs" />
     <Compile Include="Models\DbUserInfoEntity.cs" />
@@ -54,6 +53,7 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SecondOrmLibrary\ISecondOrm.cs" />
+    <Compile Include="UserInfoDto.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

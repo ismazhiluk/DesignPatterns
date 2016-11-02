@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Adapter.Example
+namespace Adapter.Adapters
 {
     public interface IUserAdapter
     {
