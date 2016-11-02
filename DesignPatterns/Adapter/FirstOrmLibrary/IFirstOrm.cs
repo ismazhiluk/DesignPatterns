@@ -1,6 +1,6 @@
-﻿using Example_04.Homework.Models.Interfaces;
+﻿using Adapter.Models.Interfaces;
 
-namespace Example_04.Homework.FirstOrmLibrary
+namespace Adapter.FirstOrmLibrary
 {
     public interface IFirstOrm<TDbEntity> where TDbEntity : IDbEntity
     {

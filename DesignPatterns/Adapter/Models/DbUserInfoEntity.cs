@@ -1,7 +1,7 @@
 ﻿using System;
-using Example_04.Homework.Models.Interfaces;
+using Adapter.Models.Interfaces;
 
-namespace Example_04.Homework.Models
+namespace Adapter.Models
 {
     public class DbUserInfoEntity : IDbEntity
     {

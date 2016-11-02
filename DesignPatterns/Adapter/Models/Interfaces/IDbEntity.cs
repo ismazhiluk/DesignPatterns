@@ -1,4 +1,4 @@
-﻿namespace Example_04.Homework.Models.Interfaces
+﻿namespace Adapter.Models.Interfaces
 {
     public interface IDbEntity
     {
