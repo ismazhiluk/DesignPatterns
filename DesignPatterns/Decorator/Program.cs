@@ -1,15 +1,16 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Decorator
 {
     class Program
     {
-        static void Main(string[] args)
+        static void Main()
         {
+            IClient writerClient = new ConsoleClient(nameof(writerClient), ConsoleColor.Yellow);
+            IClient readerClient = new ConsoleClient(nameof(readerClient), ConsoleColor.Green);
+            var echoServer = new SimpleServer(writerClient, readerClient);
+            echoServer.Start();
+            writerClient.StartSending();
         }
     }
 }
