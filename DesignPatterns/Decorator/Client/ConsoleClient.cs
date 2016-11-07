@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Decorator
+namespace Decorator.Client
 {
     public class ConsoleClient : IClient
     {
@@ -12,6 +12,8 @@ namespace Decorator
             _name = name;
             _color = color;
         }
+
+        public event EventHandler<MessageEventArgs> SendMessage;
 
         public void StartSending()
         {
@@ -33,7 +35,7 @@ namespace Decorator
                 Console.WriteLine();
                 Console.ResetColor();
 
-                OnSendMessage(new MessageEventArgs {Message = message});
+                SendMessage?.Invoke(this, new MessageEventArgs { Message = message });
             }
         }
 
@@ -44,13 +46,6 @@ namespace Decorator
             Console.WriteLine($"\"{message.Destination}\" receive from \"{message.Source}\" message \"{message.Text}\"");
             Console.WriteLine();
             Console.ResetColor();
-        }
-
-        public event EventHandler<MessageEventArgs> SendMessage;
-
-        protected virtual void OnSendMessage(MessageEventArgs e)
-        {
-            SendMessage?.Invoke(this, e);
         }
     }
 }

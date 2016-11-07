@@ -1,11 +1,11 @@
 ﻿using System;
 
-namespace Decorator
+namespace Decorator.Client
 {
     public interface IClient
     {
-        void StartSending();
         event EventHandler<MessageEventArgs> SendMessage;
+        void StartSending();
         void ReceiveMessage(Message message);
     }
 }

@@ -1,4 +1,5 @@
 ﻿using System;
+using Decorator.Client;
 
 namespace Decorator
 {
@@ -6,10 +7,18 @@ namespace Decorator
     {
         static void Main()
         {
-            IClient writerClient = new ConsoleClient(nameof(writerClient), ConsoleColor.Yellow);
-            IClient readerClient = new ConsoleClient(nameof(readerClient), ConsoleColor.Green);
-            var echoServer = new SimpleServer(writerClient, readerClient);
-            echoServer.Start();
+            var writerClient = new ClientBuilder(new ConsoleClient("writerClient", ConsoleColor.Yellow))
+                                        .WithHideName()
+                                        .WithEncryptedMessage()
+                                        .Build();
+
+            var readerClient = new ClientBuilder(new ConsoleClient("readerClient", ConsoleColor.Green))
+                                        .WithHideName()
+                                        .WithEncryptedMessage()
+                                        .Build();
+
+            var server = new SimpleServer(writerClient, readerClient);
+            server.Start();
             writerClient.StartSending();
         }
     }
