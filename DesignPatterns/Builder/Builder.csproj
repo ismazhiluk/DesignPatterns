@@ -43,11 +43,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Builder\StateEmailBuilder.cs" />
     <Compile Include="IEmail.cs" />
     <Compile Include="Builder\IEmailBuilder.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Builder\SimpleEmailBuilder.cs" />
     <Compile Include="Sender\ConsoleEmailSender.cs" />
     <Compile Include="Sender\IEmailSender.cs" />
   </ItemGroup>

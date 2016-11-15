@@ -9,7 +9,8 @@ namespace Builder
         {
             const string body = "Привет! Высылаю следующее домашнее задание (Смажилюк Игорь).";
 
-            IEmailBuilder emailBuilder = new SimpleEmailBuilder("Design@Patterns.ru", body)
+            IEmailBuilder emailBuilder = new StateEmailBuilder()
+                                            .AddReceiverAndBody("Design@Patterns.ru", body)
                                             .AddReceiver("Copy@Patterns.ru")
                                             .SetSubject("Домашнее задание №3 (Builder)");
 
