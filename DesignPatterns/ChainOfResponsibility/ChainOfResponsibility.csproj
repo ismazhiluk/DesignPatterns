@@ -43,6 +43,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Bancomat.cs" />
+    <Compile Include="Handlers\BanknoteHandler.cs" />
+    <Compile Include="Handlers\FiftyDollarHandler.cs" />
+    <Compile Include="Handlers\HundredDollarHandler.cs" />
+    <Compile Include="Handlers\TenDollarHandler.cs" />
+    <Compile Include="Handlers\TenRubleHandler.cs" />
+    <Compile Include="CurrencyType.cs" />
+    <Compile Include="Banknote.cs" />
+    <Compile Include="Helper.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
