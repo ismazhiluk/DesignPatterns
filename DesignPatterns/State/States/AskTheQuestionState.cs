@@ -8,9 +8,12 @@ namespace State
         {
             public override void AskTheQuestion(CopyMachine copyMachine)
             {
-                Console.WriteLine("Хотите распечатать еще документ?");
-                Console.WriteLine("1 : Да");
-                Console.WriteLine("2 : Нет");
+                ConsolePrintHelper.WriteLineLabel("Хотите распечатать еще документ?");
+                ConsolePrintHelper.WriteLabel("1 : ");
+                ConsolePrintHelper.WriteLineValue("Да");
+                ConsolePrintHelper.WriteLabel("2 : ");
+                ConsolePrintHelper.WriteLineValue("Нет");
+
                 var result = int.Parse(Console.ReadLine());
                 if (result == 1)
                 {

@@ -9,10 +9,14 @@ namespace State
         {
             public override void ChooseDevice(CopyMachine copyMachine)
             {
-                Console.WriteLine("Выберите устройство:");
+                ConsolePrintHelper.WriteLineLabel("Выберите устройство:");
                 foreach (var device in Program.Devices)
                 {
-                    Console.WriteLine($"{device.Id} : {device.Name}");
+                    ConsolePrintHelper.WriteLabel($"{nameof(device.Id)} : ");
+                    ConsolePrintHelper.WriteValue(device.Id.ToString());
+                    ConsolePrintHelper.WriteLabel("; ");
+                    ConsolePrintHelper.WriteLabel($"{nameof(device.Name)} : ");
+                    ConsolePrintHelper.WriteLineValue(device.Name);
                 }
                 var deviceId = int.Parse(Console.ReadLine());
                 copyMachine.Device = Program.Devices.First(i => i.Id == deviceId);

@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace State
+﻿namespace State
 {
     public partial class CopyMachine
     {
@@ -9,7 +7,7 @@ namespace State
             public override void SayGoodbye(CopyMachine copyMachine)
             {
                 copyMachine.State = null;
-                Console.WriteLine("До свидания!");
+                ConsolePrintHelper.WriteLineLabel("До свидания!");
             }
         }
     }

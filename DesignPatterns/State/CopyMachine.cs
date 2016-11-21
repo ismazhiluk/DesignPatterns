@@ -1,4 +1,5 @@
-﻿using State.Device;
+﻿using System;
+using State.Device;
 
 namespace State
 {
@@ -10,7 +11,7 @@ namespace State
         public Document Document { get; set; }
         public string Error { get; set; }
 
-        public double CostOfPage { get; private set; }
+        public double CostOfPage { get; }
 
         public CopyMachine(double costOfPage)
         {
@@ -20,7 +21,16 @@ namespace State
 
         public void Print()
         {
-            State.AddCash(this);
+            try
+            {
+                State.AddCash(this);
+            }
+            catch (Exception exception)
+            {
+                Error = exception.Message;
+                State = new ErrorState();
+                State.PrintError(this);
+            }
         }
 
         public void Cancel()

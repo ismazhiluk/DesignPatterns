@@ -6,8 +6,8 @@
         public abstract string Name { get; }
         public Document[] Documents => new[]
         {
-            new Document {Id = 11, Name = $"Первый документ на {Name}", AmountOfPages = 1},
-            new Document {Id = 12, Name = $"Второй документ на {Name}", AmountOfPages = 2}
+            new Document {Id = 11, Name = $"Первый документ на {Name.ReplaceLast("е")}", AmountOfPages = 1},
+            new Document {Id = 12, Name = $"Второй документ на {Name.ReplaceLast("е")}", AmountOfPages = 2}
         };
     }
 }

@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace State
+﻿namespace State
 {
     public partial class CopyMachine
     {
@@ -10,7 +8,8 @@ namespace State
             {
                 if (copyMachine.Cash > 0)
                 {
-                    Console.WriteLine($"Возьмите сдачу: \"{copyMachine.Cash}\"");
+                    ConsolePrintHelper.WriteLabel("Возьмите сдачу: ");
+                    ConsolePrintHelper.WriteLineValue(copyMachine.Cash.ToString());
                     copyMachine.Cash = 0;
                 }
                 copyMachine.State = new GoodbyeState();

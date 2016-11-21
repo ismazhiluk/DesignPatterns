@@ -9,10 +9,14 @@ namespace State
         {
             public override void ChooseDocument(CopyMachine copyMachine)
             {
-                Console.WriteLine("Выберите документ:");
+                ConsolePrintHelper.WriteLineLabel("Выберите документ:");
                 foreach (var document in copyMachine.Device.Documents)
                 {
-                    Console.WriteLine($"{document.Id} : {document.Name}");
+                    ConsolePrintHelper.WriteLabel($"{nameof(document.Id)} : ");
+                    ConsolePrintHelper.WriteValue(document.Id.ToString());
+                    ConsolePrintHelper.WriteLabel("; ");
+                    ConsolePrintHelper.WriteLabel($"{nameof(document.Name)} : ");
+                    ConsolePrintHelper.WriteLineValue(document.Name);
                 }
                 var documentId = int.Parse(Console.ReadLine());
                 copyMachine.Document = copyMachine.Device.Documents.First(i => i.Id == documentId);
