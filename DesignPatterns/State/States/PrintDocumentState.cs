@@ -1,25 +1,28 @@
 ﻿using System;
 
-namespace State.States
+namespace State
 {
-    public class PrintDocumentState : CancelState
+    public partial class CopyMachine
     {
-        public override void PrintDocument(CopyMachine copyMachine)
+        private class PrintDocumentState : CancelState
         {
-            var cost = copyMachine.Document.AmountOfPages*copyMachine.CostOfPage;
-            if (copyMachine.Cash - cost < 0)
+            public override void PrintDocument(CopyMachine copyMachine)
             {
-                copyMachine.Error = "Внесенных средств недостаточно";
-                copyMachine.State = new ErrorState();
-                copyMachine.State.PrintError(copyMachine);
-                return;
+                var cost = copyMachine.Document.AmountOfPages*copyMachine.CostOfPage;
+                if (copyMachine.Cash - cost < 0)
+                {
+                    copyMachine.Error = "Внесенных средств недостаточно";
+                    copyMachine.State = new ErrorState();
+                    copyMachine.State.PrintError(copyMachine);
+                    return;
+                }
+                copyMachine.Cash -= cost;
+                Console.ForegroundColor = ConsoleColor.Cyan;
+                Console.WriteLine($"Печать документа: \"{copyMachine.Document.Name}\"");
+                Console.ResetColor();
+                copyMachine.State = new AskTheQuestionState();
+                copyMachine.State.AskTheQuestion(copyMachine);
             }
-            copyMachine.Cash -= cost;
-            Console.ForegroundColor = ConsoleColor.Cyan;
-            Console.WriteLine($"Печать документа: \"{copyMachine.Document.Name}\"");
-            Console.ResetColor();
-            copyMachine.State = new AskTheQuestionState();
-            copyMachine.State.AskTheQuestion(copyMachine);
         }
     }
 }

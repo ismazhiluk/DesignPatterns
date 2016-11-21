@@ -1,13 +1,16 @@
 ﻿using System;
 
-namespace State.States
+namespace State
 {
-    public class GoodbyeState : CancelState
+    public partial class CopyMachine
     {
-        public override void SayGoodbye(CopyMachine copyMachine)
+        private class GoodbyeState : CancelState
         {
-            copyMachine.State = null;
-            Console.WriteLine("До свидания!");
+            public override void SayGoodbye(CopyMachine copyMachine)
+            {
+                copyMachine.State = null;
+                Console.WriteLine("До свидания!");
+            }
         }
     }
 }

@@ -1,16 +1,19 @@
 ﻿using System;
 using System.Globalization;
 
-namespace State.States
+namespace State
 {
-    public class AddCashState : CancelState
+    public partial class CopyMachine
     {
-        public override void AddCash(CopyMachine copyMachine)
+        private class AddCashState : CancelState
         {
-            Console.WriteLine("Внесите сумму:");
-            copyMachine.Cash = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
-            copyMachine.State = new ChooseDeviceState();
-            copyMachine.State.ChooseDevice(copyMachine);
+            public override void AddCash(CopyMachine copyMachine)
+            {
+                Console.WriteLine("Внесите сумму:");
+                copyMachine.Cash = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
+                copyMachine.State = new ChooseDeviceState();
+                copyMachine.State.ChooseDevice(copyMachine);
+            }
         }
     }
 }

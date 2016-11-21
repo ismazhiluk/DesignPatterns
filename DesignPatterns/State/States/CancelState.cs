@@ -1,11 +1,14 @@
-﻿namespace State.States
+﻿namespace State
 {
-    public abstract class CancelState : AbstractState
+    public partial class CopyMachine
     {
-        public override void Cancel(CopyMachine copyMachine)
+        private abstract class CancelState : AbstractState
         {
-            copyMachine.State = new ReturnDeliveryState();
-            copyMachine.State.ReturnDelivery(copyMachine);
+            public override void Cancel(CopyMachine copyMachine)
+            {
+                copyMachine.State = new ReturnDeliveryState();
+                copyMachine.State.ReturnDelivery(copyMachine);
+            }
         }
     }
 }

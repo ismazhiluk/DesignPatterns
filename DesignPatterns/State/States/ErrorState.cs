@@ -1,14 +1,17 @@
 ﻿using System;
 
-namespace State.States
+namespace State
 {
-    public class ErrorState : CancelState
+    public partial class CopyMachine
     {
-        public override void PrintError(CopyMachine copyMachine)
+        public class ErrorState : CancelState
         {
-            Console.WriteLine($"Произошла ошибка: \"{copyMachine.Error}\"");
-            copyMachine.State = new ReturnDeliveryState();
-            copyMachine.State.ReturnDelivery(copyMachine);
+            public override void PrintError(CopyMachine copyMachine)
+            {
+                Console.WriteLine($"Произошла ошибка: \"{copyMachine.Error}\"");
+                copyMachine.State = new ReturnDeliveryState();
+                copyMachine.State.ReturnDelivery(copyMachine);
+            }
         }
     }
 }

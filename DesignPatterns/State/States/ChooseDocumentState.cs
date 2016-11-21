@@ -1,21 +1,24 @@
 ﻿using System;
 using System.Linq;
 
-namespace State.States
+namespace State
 {
-    public class ChooseDocumentState : CancelState
+    public partial class CopyMachine
     {
-        public override void ChooseDocument(CopyMachine copyMachine)
+        private class ChooseDocumentState : CancelState
         {
-            Console.WriteLine("Выберите документ:");
-            foreach (var document in copyMachine.Device.Documents)
+            public override void ChooseDocument(CopyMachine copyMachine)
             {
-                Console.WriteLine($"{document.Id} : {document.Name}");
+                Console.WriteLine("Выберите документ:");
+                foreach (var document in copyMachine.Device.Documents)
+                {
+                    Console.WriteLine($"{document.Id} : {document.Name}");
+                }
+                var documentId = int.Parse(Console.ReadLine());
+                copyMachine.Document = copyMachine.Device.Documents.First(i => i.Id == documentId);
+                copyMachine.State = new PrintDocumentState();
+                copyMachine.State.PrintDocument(copyMachine);
             }
-            var documentId = int.Parse(Console.ReadLine());
-            copyMachine.Document = copyMachine.Device.Documents.First(i => i.Id == documentId);
-            copyMachine.State = new PrintDocumentState();
-            copyMachine.State.PrintDocument(copyMachine);
         }
     }
 }

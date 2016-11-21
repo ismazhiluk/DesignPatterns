@@ -1,18 +1,21 @@
 ﻿using System;
 
-namespace State.States
+namespace State
 {
-    public class ReturnDeliveryState : CancelState
+    public partial class CopyMachine
     {
-        public override void ReturnDelivery(CopyMachine copyMachine)
+        private class ReturnDeliveryState : CancelState
         {
-            if (copyMachine.Cash > 0)
+            public override void ReturnDelivery(CopyMachine copyMachine)
             {
-                Console.WriteLine($"Возьмите сдачу: \"{copyMachine.Cash}\"");
-                copyMachine.Cash = 0;
+                if (copyMachine.Cash > 0)
+                {
+                    Console.WriteLine($"Возьмите сдачу: \"{copyMachine.Cash}\"");
+                    copyMachine.Cash = 0;
+                }
+                copyMachine.State = new GoodbyeState();
+                copyMachine.State.SayGoodbye(copyMachine);
             }
-            copyMachine.State = new GoodbyeState();
-            copyMachine.State.SayGoodbye(copyMachine);
         }
     }
 }

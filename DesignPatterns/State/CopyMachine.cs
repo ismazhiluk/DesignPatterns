@@ -1,11 +1,10 @@
 ﻿using State.Device;
-using State.States;
 
 namespace State
 {
-    public class CopyMachine : ICopyMachine
+    public partial class CopyMachine : ICopyMachine
     {
-        public AbstractState State { get; set; }
+        private CopyMachine.AbstractState State { get; set; }
         public double Cash { get; set; }
         public AbstractDevice Device { get; set; }
         public Document Document { get; set; }

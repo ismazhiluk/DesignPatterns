@@ -1,21 +1,24 @@
 ﻿using System;
 using System.Linq;
 
-namespace State.States
+namespace State
 {
-    public class ChooseDeviceState : CancelState
+    public partial class CopyMachine
     {
-        public override void ChooseDevice(CopyMachine copyMachine)
+        private class ChooseDeviceState : CancelState
         {
-            Console.WriteLine("Выберите устройство:");
-            foreach (var device in Program.Devices)
+            public override void ChooseDevice(CopyMachine copyMachine)
             {
-                Console.WriteLine($"{device.Id} : {device.Name}");
+                Console.WriteLine("Выберите устройство:");
+                foreach (var device in Program.Devices)
+                {
+                    Console.WriteLine($"{device.Id} : {device.Name}");
+                }
+                var deviceId = int.Parse(Console.ReadLine());
+                copyMachine.Device = Program.Devices.First(i => i.Id == deviceId);
+                copyMachine.State = new ChooseDocumentState();
+                copyMachine.State.ChooseDocument(copyMachine);
             }
-            var deviceId = int.Parse(Console.ReadLine());
-            copyMachine.Device = Program.Devices.First(i => i.Id == deviceId);
-            copyMachine.State = new ChooseDocumentState();
-            copyMachine.State.ChooseDocument(copyMachine);
         }
     }
 }
