@@ -7,7 +7,7 @@ namespace Xrm.ReportUtility.Infrastructure
     public static class DataTransformerCreator
     {
         /// <summary>
-        /// Применен паттерн фабрика (не абстрактная)
+        /// Применен паттерн Builder, но реализация неявная
         /// </summary>
         public static IDataTransformer CreateTransformer(ReportConfig config)
         {

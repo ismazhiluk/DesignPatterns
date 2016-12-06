@@ -12,6 +12,9 @@ namespace Xrm.ReportUtility.Infrastructure.Transformers.Abstract
             DataTransformer = dataTransformer;
         }
 
+        /// <summary>
+        /// Применен паттерн шаблонный метод
+        /// </summary>
         public abstract Report TransformData(DataRow[] data);
     }
 }
