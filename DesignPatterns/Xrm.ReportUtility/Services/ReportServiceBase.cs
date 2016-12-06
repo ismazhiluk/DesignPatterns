@@ -43,6 +43,9 @@ namespace Xrm.ReportUtility.Services
             };
         }
 
+        /// <summary>
+        /// Применен паттерн шаблонный метод
+        /// </summary>
         protected abstract DataRow[] GetDataRows(string text);
     }
 }
