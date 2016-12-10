@@ -43,8 +43,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Figures\Circle.cs" />
+    <Compile Include="Figures\FigureBase.cs" />
+    <Compile Include="Figures\Triangle.cs" />
+    <Compile Include="Figures\Rectangle.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Visitors\EuclideanGeometryVisitor.cs" />
+    <Compile Include="Visitors\HyperbolicGeometryVisitor.cs" />
+    <Compile Include="Visitors\IVisitor.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
