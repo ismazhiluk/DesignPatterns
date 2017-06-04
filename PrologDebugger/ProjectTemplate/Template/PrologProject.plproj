@@ -13,6 +13,6 @@
     <Compile Include="Program.pl">  
       <SubType>Code</SubType>  
     </Compile>  
-  </ItemGroup>  
+  </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />  
 </Project>  
