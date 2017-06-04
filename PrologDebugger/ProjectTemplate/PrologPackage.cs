@@ -1,6 +1,7 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 using System.Runtime.InteropServices;
 using Microsoft.VisualStudio.Shell;
+using PrologDebugger.Executor;
 
 namespace PrologDebugger.ProjectTemplate
 {
@@ -9,6 +10,8 @@ namespace PrologDebugger.ProjectTemplate
     [ProvideProjectFactory(typeof(PrologProjectFactory), "Prolog",
     "Prolog Project Files (*.plproj);*.plproj", "plproj", "plproj",
     @"ProjectTemplate\Template", LanguageVsTemplate = "PrologProject")]
+    [ProvideMenuResource("Menus.ctmenu", 1)]
+    [ProvideToolWindow(typeof(ToolWindow))]
     [Guid(PackageGuids.GuidPkgString)]
     [SuppressMessage("StyleCop.CSharp.DocumentationRules", "SA1650:ElementDocumentationMustBeSpelledCorrectly", Justification = "pkgdef, VS and vsixmanifest are valid VS terms")]
     public sealed class PrologPackage : Package
@@ -16,7 +19,8 @@ namespace PrologDebugger.ProjectTemplate
         protected override void Initialize()
         {
             base.Initialize();
-            this.RegisterProjectFactory(new PrologProjectFactory(this));
+            RegisterProjectFactory(new PrologProjectFactory(this));
+            ToolWindowCommand.Initialize(this);
         }
     }
 }
