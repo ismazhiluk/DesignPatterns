@@ -12,7 +12,7 @@
         <StackPanel Orientation="Vertical">
             <TextBlock Margin="10" HorizontalAlignment="Center">Выполнить запрос</TextBlock>
             <TextBlock Margin="10" >Запрос</TextBlock>
-            <TextBox TextWrapping="Wrap" Margin="10" AutoWordSelection="True" Name="QueryTextBox"/>
+            <TextBox TextWrapping="Wrap" Margin="10" AutoWordSelection="True" Name="QueryTextBox" Text="gcd(6, 3, A)"/>
             <Button Content="Выполнить" Click="ExecuteButton_Click" Width="120" Height="32" Name="ExecuteButton" HorizontalAlignment="Left" Margin="10"/>
             <TextBlock Margin="10" >Результат</TextBlock>
             <TextBox TextWrapping="Wrap" Margin="10" AutoWordSelection="True" Name="ResultTextBox" HorizontalAlignment="Stretch" Height="100"/>
